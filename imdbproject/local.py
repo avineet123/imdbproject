@@ -50,9 +50,9 @@ MIDDLEWARE_CLASSES = (
             'django.middleware.clickjacking.XFrameOptionsMiddleware',
             )
 
-ROOT_URLCONF = 'imdb.urls'
+ROOT_URLCONF = 'imdbproject.urls'
 
-WSGI_APPLICATION = 'imdb.wsgi.application'
+WSGI_APPLICATION = 'imdbproject.wsgi.application'
 
 
 # Database
@@ -82,5 +82,5 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
