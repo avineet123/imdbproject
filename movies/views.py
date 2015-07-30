@@ -1,9 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.authentication import SessionAuthentication
-from rest_framework.authentication import BasicAuthentication
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .serializers import MovieSerializer
@@ -16,7 +14,7 @@ class MovieViewSet(viewsets.ModelViewSet):
     """
         A viewset for viewing and editing movie instances.
     """
-    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticatedOrReadOnly,)
     serializer_class = MovieSerializer
     queryset = MovieModel.objects.all()

@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken'
     'movies'
 )
 
@@ -119,3 +120,10 @@ STATICFILES_DIRS = (
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+# rest_framework settings
+REST_FRAMEWORK = {
+                  'DEFAULT_RENDERER_CLASSES': (
+                      'rest_framework.renderers.JSONRenderer',
+                  )
+                  }

@@ -1,43 +1,35 @@
-# Heroku Django Starter Template
+# imdb movie
 
-An utterly fantastic project starter template for Django 1.8.
+Restful Api managed imdb movie viewer/editor 
 
-## Features
+## Api Endpoints
 
-- Production-ready configuration for Static Files, Database Settings, Gunicorn, etc.
-- Enhancements to Django's static file serving functionality via WhiteNoise
-- Enhancements to Django's database functionality via django-postgrespool and dj-database-url
+- /api/movie/ 
+  Method Allowed: GET, POST, HEAD, OPTIONS
+  POST allowed only to admins
+  Add new movie and see the list of movies
+- /api/movie/<pk>/
+  Method Allowed:GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+  PUT,PATCH,DELETE allowed only to admins
+  manage and view particular movie
+- /api/search/<movie_name>/
+  Method Allowed:GET
+  search for movie that contains movie name.
+- /api-token-auth/
+  Method Allowed:POST
+  gets authorization token on verifying credentials username and password
 
-## How to Use
+## Movie json data structure
+    {
+    "99popularity": "decimal",
+    "director": "string",
+    "genre": ["gene_list"],
+    "imdb_score": "decimal",
+    "name": "string"
+    }
 
-To use this project, follow these steps:
 
-1. Create your working environment.
-2. Install Django (`$ pip install django`)
-3. Create a new project using this template
 
-## Creating Your Project
+## To run on local machine
+    python manage.py runserver --settingd=imdbproject.local
 
-Using this template to create a new Django app is easy::
-
-    $ django-admin.py startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile helloworld
-
-You can replace ``helloworld`` with your desired project name.
-
-## Deployment to Heroku
-
-    $ git init
-    $ git add -A
-    $ git commit -m "Initial commit"
-
-    $ heroku create
-    $ git push heroku master
-
-    $ heroku run python manage.py migrate
-
-## Further Reading
-
-- [Gunicorn](https://warehouse.python.org/project/gunicorn/)
-- [WhiteNoise](https://warehouse.python.org/project/whitenoise/)
-- [django-postgrespool](https://warehouse.python.org/project/django-postgrespool/)
-- [dj-database-url](https://warehouse.python.org/project/dj-database-url/)
