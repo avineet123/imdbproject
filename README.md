@@ -31,5 +31,5 @@ Restful Api managed imdb movie viewer/editor
 
 
 ## To run on local machine
-    python manage.py runserver --settingd=imdbproject.local
+    python manage.py runserver
 
