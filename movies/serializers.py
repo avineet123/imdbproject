@@ -31,6 +31,12 @@ class MovieSerializer(serializers.ModelSerializer):
             raise exceptions.ValidationError({
                                 '99popularity': 'This field is required.'
                                 })
+        else:
+            if float(popularity_99) > 100.0 or float(popularity_99) < 0:
+                raise exceptions.ValidationError({
+                                '99popularity':
+                                'This field value should be between 0 to 100.'
+                                })
 
         director = data.get('director')
         # validation for director
@@ -46,6 +52,12 @@ class MovieSerializer(serializers.ModelSerializer):
         if not imdb_score:
             raise exceptions.ValidationError({
                                 'imdb_score': 'This field is required.'
+                                })
+        else:
+            if float(imdb_score) > 10.0 or float(imdb_score) < 0:
+                raise exceptions.ValidationError({
+                                'imdb_score':
+                                'This field value should be between 0 to 10.'
                                 })
 
         name = data.get('name')
